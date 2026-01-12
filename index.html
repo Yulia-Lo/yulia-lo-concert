@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЮЛИЯ ЛО - КОНЦЕРТ В ОРЕНБУРЖЬЕ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: #fff5e6; 
+            padding-top: 80px;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* НАВИГАЦИЯ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 140, 0, 0.95);
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .music-control {
+            background: white;
+            color: #FF8C00;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* АФИША С ДОПОЛНИТЕЛЬНЫМ ТЕКСТОМ */
+        .poster-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            align-items: center;
+        }
+        
+        .poster-left {
+            text-align: center;
+        }
+        
+        .poster-image {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 5px solid #FF8C00;
+        }
+        
+        .poster-label {
+            margin-top: 15px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FF8C00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .poster-content {
+            padding: 20px;
+        }
+        
+        .poster-content h1 {
+            font-family: 'Oswald', sans-serif;
+            color: #FF8C00;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .poster-content h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .venue {
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 165, 0, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #FF8C00;
+        }
+        
+        .highlight-text h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #FF8C00;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-text p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* СЕКЦИЯ ЗАЛА */
+        .hall-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            scroll-margin-top: 100px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            color: #FF8C00;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        
+        /* ДАТА КОНЦЕРТА */
+        .concert-date {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+        }
+        
+        .concert-date h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .concert-date p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        /* СХЕМА ЗАЛА */
+        .hall-layout {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            border: 2px solid #ddd;
+            min-height: 500px;
+        }
+        
+        /* СЦЕНА */
+        .stage-box {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        /* ТАНЦПОЛ */
+        .dance-floor-area {
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 80px;
+            background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 5;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dance-floor-area:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        .dance-floor-area.selected {
+            border: 3px solid #FFEB3B;
+            box-shadow: 0 0 20px #FFEB3B;
+        }
+        
+        /* СИДЯЧИЕ МЕСТА */
+        .seating-area {
+            position: absolute;
+            background: transparent;
+        }
+        
+        .seating-left {
+            top: 90px;
+            left: 40px;
+            width: 150px;
+            height: 250px;
+        }
+        
+        .seating-right {
+            top: 90px;
+            right: 40px;
+            width: 150px;
+            height: 250px;
+        }
+        
+        .seating-bottom {
+            top: 190px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 120px;
+        }
+        
+        /* VIP МЕСТА С ЗАБРОНИРОВАННЫМ МЕСТОМ */
+        .vip-area {
+            position: absolute;
+            top: 380px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* СЕТКА МЕСТ */
+        .seats-grid {
+            display: grid;
+            gap: 6px;
+            justify-content: center;
+        }
+        
+        .seats-grid.left {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+        }
+        
+        .seats-grid.right {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+        }
+        
+        .seats-grid.bottom {
+            grid-template-columns: repeat(14, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+        
+        .seats-grid.vip {
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        
+        /* ОТДЕЛЬНОЕ МЕСТО */
+        .seat {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.5rem;
+            font-weight: bold;
+            color: white;
+            user-select: none;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .seat:hover:not(.occupied):not(.reserved) {
+            transform: scale(1.4);
+            z-index: 100;
+        }
+        
+        .seat.regular {
+            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+        }
+        
+        .seat.vip-seat {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+        }
+        
+        .seat.selected {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            transform: scale(1.3);
+            box-shadow: 0 0 8px #2196F3;
+        }
+        
+        .seat.occupied {
+            background: linear-gradient(135deg, #757575 0%, #616161 100%);
+            cursor: not-allowed;
+            opacity: 0.7;
+            position: relative;
+        }
+        
+        /* ЗАБРОНИРОВАННОЕ МЕСТО ЛЯЩЕНКО - ТЕПЕРЬ ВСЕГДА ПОДПИСАНО */
+        .seat.reserved {
+            background: linear-gradient(135deg, #FF5722 0%, #D84315 100%);
+            cursor: not-allowed;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #FF5722;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .seat.reserved::after {
+            content: "Лященко Максим Николаевич";
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FF5722;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 1;
+            z-index: 102;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            letter-spacing: 0.3px;
+        }
+        
+        .seat.reserved::before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #FF5722;
+        }
+        
+        /* Подсказка при наведении */
+        .seat::after {
+            content: attr(data-number);
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.6rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 101;
+        }
+        
+        .seat:hover::after {
+            opacity: 1;
+        }
+        
+        /* ЛЕГЕНДА */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+        
+        .legend-color {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+        }
+        
+        /* ВЫБОР И ПОКУПКА */
+        .selection-container {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .selected-seats {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .seats-list {
+            min-height: 60px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .seat-badge {
+            background: #2196F3;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .remove-seat {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 0.7rem;
+            padding: 0 4px;
+        }
+        
+        .empty-message {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
+        }
+        
+        .buy-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* СТАТИСТИКА */
+        .hall-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FF8C00;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* ВИДЕО СЕКЦИЯ С МЕНЬШИМИ ЦИФРАМИ */
+        .video-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            scroll-margin-top: 100px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background: #000;
+        }
+        
+        /* СТАТИСТИКА ПОД ВИДЕО (УМЕНЬШЕННЫЕ ЦИФРЫ) */
+        .video-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 30px auto 0;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .stat-value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FF8C00;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .stat-icon {
+            font-size: 1.8rem;
+            color: #FF8C00;
+            margin-bottom: 10px;
+        }
+        
+        /* КОНТАКТЫ (БЕЗ СМАЙЛИКА) */
+        .contacts-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            scroll-margin-top: 100px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contacts-section h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #FF8C00;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #555;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+        
+        .contact-icon {
+            color: #FF8C00;
+            margin-right: 12px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        /* ФУТЕР */
+        .footer {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .poster-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .poster-image {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .hall-layout {
+                padding: 20px;
+                min-height: 450px;
+            }
+            
+            .stage-box {
+                width: 140px;
+                font-size: 1rem;
+            }
+            
+            .dance-floor-area {
+                width: 280px;
+                font-size: 1rem;
+            }
+            
+            .seating-left, .seating-right {
+                width: 120px;
+                left: 20px;
+                right: 20px;
+            }
+            
+            .seating-bottom {
+                width: 280px;
+            }
+            
+            .vip-area {
+                width: 400px;
+            }
+            
+            .seat {
+                width: 14px;
+                height: 14px;
+                font-size: 0.4rem;
+            }
+            
+            .seat.reserved::after {
+                font-size: 0.65rem;
+                top: -40px;
+                padding: 4px 8px;
+                white-space: normal;
+                width: 120px;
+                text-align: center;
+            }
+            
+            .seats-grid.left,
+            .seats-grid.right {
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(8, 1fr);
+            }
+            
+            .seats-grid.bottom {
+                grid-template-columns: repeat(12, 1fr);
+            }
+            
+            .seats-grid.vip {
+                grid-template-columns: repeat(15, 1fr);
+            }
+            
+            .legend {
+                gap: 15px;
+            }
+            
+            .hall-stats {
+                gap: 15px;
+            }
+            
+            .video-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .poster-content h1 {
+                font-size: 2rem;
+            }
+            
+            .poster-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hall-layout {
+                min-height: 380px;
+                padding: 15px;
+            }
+            
+            .stage-box {
+                width: 100px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            
+            .dance-floor-area {
+                width: 220px;
+                height: 60px;
+                font-size: 0.9rem;
+            }
+            
+            .seating-left, .seating-right {
+                width: 90px;
+            }
+            
+            .seating-bottom {
+                width: 220px;
+            }
+            
+            .vip-area {
+                width: 300px;
+            }
+            
+            .seat {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .seat.reserved::after {
+                font-size: 0.55rem;
+                top: -35px;
+                padding: 3px 6px;
+                width: 100px;
+            }
+            
+            .seats-grid.left,
+            .seats-grid.right {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+            
+            .seats-grid.bottom {
+                grid-template-columns: repeat(10, 1fr);
+            }
+            
+            .seats-grid.vip {
+                grid-template-columns: repeat(10, 1fr);
+            }
+            
+            .video-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- АВТОМАТИЧЕСКАЯ МУЗЫКА -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/tangerine.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+    
+    <!-- НАВИГАЦИЯ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span>🍊</span>
+                <span>ЮЛИЯ ЛО</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#poster"><i class="fas fa-star"></i> Афиша</a>
+                <a href="#hall"><i class="fas fa-chair"></i> Зал</a>
+                <a href="#video"><i class="fas fa-video"></i> Видео</a>
+                <a href="#contacts"><i class="fas fa-phone"></i> Контакты</a>
+            </div>
+            
+            <button class="music-control" onclick="toggleMusic()">
+                <i class="fas fa-music"></i>
+                <span id="musicBtnText">Выкл</span>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- АФИША С ДОПОЛНИТЕЛЬНЫМ ТЕКСТОМ -->
+        <section class="poster-section" id="poster">
+            <div class="poster-left">
+                <img src="assets/poster.jpg" alt="Постер Юлии Ло" class="poster-image" id="posterImg">
+                <div class="poster-label">ЮЛИЯ ЛО</div>
+            </div>
+            
+            <div class="poster-content">
+                <h1>ЮЛИЯ ЛО</h1>
+                <h2>"МАНДАРИНКА"</h2>
+                <p class="venue">Концертный зал "Оренбуржье"</p>
+                
+                <div class="highlight-text">
+                    <h3>⭐ ЗВЕЗДА РОССИЙСКОЙ ЭСТРАДЫ ⭐</h3>
+                    <p>Юлия Ло - одна из самых ярких и востребованных певиц современной России! 
+                    Её хиты занимают верхние строчки музыкальных чартов, а клипы набирают миллионы просмотров.</p>
+                </div>
+                
+                <div class="highlight-text">
+                    <h3>🎤 ИСТОРИЧЕСКИЙ КОНЦЕРТ В ОРЕНБУРГЕ 🎤</h3>
+                    <p>Впервые в истории города Оренбург! Юлия Ло представляет свой грандиозный сольный концерт 
+                    с новой программой. Это уникальная возможность услышать живые исполнения всех хитов и премьеру новых песен.</p>
+                </div>
+                
+                <div class="highlight-text">
+                    <h3>🔥 НЕВЕРОЯТНАЯ ПОПУЛЯРНОСТЬ 🔥</h3>
+                    <p>Более 10 миллионов подписчиков в социальных сетях, песни в топах музыкальных сервисов, 
+                    участие в крупнейших фестивалях страны. Юлия Ло - настоящее явление в российской музыке!</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- СЕКЦИЯ ЗАЛА -->
+        <section class="hall-section" id="hall">
+            <h2 class="section-title">ВЫБЕРИТЕ МЕСТА В ЗАЛЕ</h2>
+            
+            <!-- ДАТА КОНЦЕРТА -->
+            <div class="concert-date">
+                <h3>12 ЯНВАРЯ 2024</h3>
+                <p>НАЧАЛО КОНЦЕРТА В 19:00</p>
+            </div>
+            
+            <!-- СТАТИСТИКА ЗАЛА -->
+            <div class="hall-stats">
+                <div class="stat-box">
+                    <div class="stat-number">200</div>
+                    <div class="stat-label">Всего мест</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="freeSeats">119</div>
+                    <div class="stat-label">Свободно</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="occupiedSeats">81</div>
+                    <div class="stat-label">Занято</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">40</div>
+                    <div class="stat-label">VIP мест</div>
+                </div>
+            </div>
+            
+            <!-- СХЕМА ЗАЛА -->
+            <div class="hall-layout">
+                <!-- СЦЕНА -->
+                <div class="stage-box">
+                    СЦЕНА
+                </div>
+                
+                <!-- ТАНЦПОЛ -->
+                <div class="dance-floor-area" id="danceFloor" onclick="selectDanceFloor()">
+                    ТАНЦПОЛ
+                </div>
+                
+                <!-- СИДЯЧИЕ МЕСТА СЛЕВА -->
+                <div class="seating-area seating-left">
+                    <div class="seats-grid left" id="seatsLeft">
+                        <!-- Места будут созданы через JS -->
+                    </div>
+                </div>
+                
+                <!-- СИДЯЧИЕ МЕСТА СПРАВА -->
+                <div class="seating-area seating-right">
+                    <div class="seats-grid right" id="seatsRight">
+                        <!-- Места будут созданы через JS -->
+                    </div>
+                </div>
+                
+                <!-- СИДЯЧИЕ МЕСТА СНИЗУ -->
+                <div class="seating-area seating-bottom">
+                    <div class="seats-grid bottom" id="seatsBottom">
+                        <!-- Места будут созданы через JS -->
+                    </div>
+                </div>
+                
+                <!-- VIP МЕСТА -->
+                <div class="vip-area">
+                    <div class="seats-grid vip" id="seatsVip">
+                        <!-- VIP места будут созданы через JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ЛЕГЕНДА -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4CAF50;"></div>
+                    <span>Стандартные места</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FF9800;"></div>
+                    <span>VIP места</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #2196F3;"></div>
+                    <span>Выбрано</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #757575;"></div>
+                    <span>Занято</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FF5722;"></div>
+                    <span>Забронировано</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #9C27B0;"></div>
+                    <span>Танцпол</span>
+                </div>
+            </div>
+            
+            <!-- ВЫБОР И ПОКУПКА -->
+            <div class="selection-container">
+                <div class="selected-seats">
+                    <h3 style="color: #FF8C00; text-align: center; margin-bottom: 15px; font-family: 'Oswald', sans-serif;">
+                        <i class="fas fa-shopping-cart"></i> ВАШИ ВЫБРАННЫЕ МЕСТА
+                    </h3>
+                    
+                    <div class="seats-list" id="seatsList">
+                        <div class="empty-message">Нажмите на места в зале, чтобы добавить их в корзину</div>
+                    </div>
+                    
+                    <div style="text-align: center; font-size: 1.3rem; margin: 20px 0; font-family: 'Roboto', sans-serif;">
+                        <p>Выбрано мест: <strong id="selectedCount">0</strong></p>
+                        <p>Итого: <strong id="totalPrice">0</strong> ₽</p>
+                    </div>
+                </div>
+                
+                <button class="buy-button" id="buyButton" onclick="buyTickets()" disabled>
+                    КУПИТЬ ВЫБРАННЫЕ БИЛЕТЫ
+                </button>
+            </div>
+        </section>
+        
+        <!-- ВИДЕО СЕКЦИЯ -->
+        <section class="video-section" id="video">
+            <h2 class="section-title">ОФИЦИАЛЬНЫЙ КЛИП "МАНДАРИНКА"</h2>
+            <video controls>
+                <source src="assets/clip.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            
+            <!-- СТАТИСТИКА ПОД ВИДЕО (УМЕНЬШЕННЫЕ ЦИФРЫ) -->
+            <div class="video-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="stat-value">2.1M</div>
+                    <div class="stat-label">ПРОСМОТРОВ</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <div class="stat-value">185K</div>
+                    <div class="stat-label">ЛАЙКОВ</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-thumbs-down"></i>
+                    </div>
+                    <div class="stat-value">8K</div>
+                    <div class="stat-label">ДИЗЛАЙКОВ</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="stat-value">5.7M</div>
+                    <div class="stat-label">ПРОСЛУШИВАНИЙ</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- КОНТАКТЫ (БЕЗ СМАЙЛИКА) -->
+        <section class="contacts-section" id="contacts">
+            <h2>КОНТАКТЫ</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                    Концертный зал "Оренбуржье", г. Оренбург
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                    +7 (999) 123-45-67
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                    info@yulia-lo-concert.ru
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon"><i class="fas fa-clock"></i></span>
+                    Касса работает: 10:00 - 20:00
+                </div>
+            </div>
+        </section>
+        
+        <!-- ФУТЕР -->
+        <footer class="footer">
+            <p>© 2024 Концерт Юлии Ло "Мандаринка" | Оренбуржье</p>
+            <p>Официальный сайт концерта | Все права защищены</p>
+        </footer>
+    </div>
+
+    <script>
+        // ========== МУЗЫКА ==========
+        let musicEnabled = true;
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicBtnText = document.getElementById('musicBtnText');
+        
+        function startMusic() {
+            backgroundMusic.volume = 0.3;
+            const playPromise = backgroundMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    musicBtnText.textContent = "Выкл";
+                    musicEnabled = true;
+                }).catch(error => {
+                    musicBtnText.textContent = "Вкл";
+                    musicEnabled = false;
+                    document.body.addEventListener('click', unlockAudio, { once: true });
+                });
+            }
+        }
+        
+        function unlockAudio() {
+            backgroundMusic.play().then(() => {
+                musicBtnText.textContent = "Выкл";
+                musicEnabled = true;
+            });
+        }
+        
+        function toggleMusic() {
+            if (musicEnabled) {
+                backgroundMusic.pause();
+                musicBtnText.textContent = "Вкл";
+                musicEnabled = false;
+            } else {
+                backgroundMusic.play().then(() => {
+                    musicBtnText.textContent = "Выкл";
+                    musicEnabled = true;
+                });
+            }
+        }
+        
+        // ========== СИСТЕМА ЗАЛА С 200 МЕСТАМИ ==========
+        let selectedSeats = new Set();
+        let danceFloorSelected = false;
+        let totalSeats = 200;
+        let occupiedSeats = 80;
+        let seatCounter = 1;
+        
+        // Цены мест
+        const seatPrices = {
+            'regular': 2000,
+            'vip': 5000,
+            'dance': 3000
+        };
+        
+        // Создание 200 мест
+        function createSeats() {
+            seatCounter = 1;
+            
+            // 1. Места слева (6×10 = 60 мест)
+            createSeatGrid('seatsLeft', 6, 10, 'regular');
+            
+            // 2. Места справа (6×10 = 60 мест)
+            createSeatGrid('seatsRight', 6, 10, 'regular');
+            
+            // 3. Места снизу (14×4 = 56 мест)
+            createSeatGrid('seatsBottom', 14, 4, 'regular');
+            
+            // 4. VIP места (20×2 = 40 мест) с забронированным местом
+            createVipSeats('seatsVip', 20, 2);
+            
+            // Занимаем 80 случайных мест
+            occupyRandomSeats(80);
+            
+            updateStats();
+        }
+        
+        // Создание сетки мест
+        function createSeatGrid(containerId, cols, rows, type) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            for (let row = 1; row <= rows; row++) {
+                for (let col = 1; col <= cols; col++) {
+                    if (seatCounter > totalSeats) return;
+                    
+                    const seat = document.createElement('div');
+                    seat.className = `seat ${type === 'vip' ? 'vip-seat' : 'regular'}`;
+                    seat.dataset.number = seatCounter;
+                    seat.dataset.type = type;
+                    seat.dataset.price = seatPrices[type];
+                    seat.dataset.row = row;
+                    seat.dataset.col = col;
+                    seat.dataset.area = containerId.replace('seats', '');
+                    seat.setAttribute('data-number', `Место ${seatCounter}`);
+                    
+                    seat.onclick = function() {
+                        if (!this.classList.contains('occupied') && !this.classList.contains('reserved')) {
+                            toggleSeatSelection(this);
+                        }
+                    };
+                    
+                    container.appendChild(seat);
+                    seatCounter++;
+                }
+            }
+        }
+        
+        // Создание VIP мест с одним забронированным местом
+        function createVipSeats(containerId, cols, rows) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            // Забронированное место будет в середине первого ряда
+            const reservedRow = 1;
+            const reservedCol = Math.floor(cols / 2);
+            
+            for (let row = 1; row <= rows; row++) {
+                for (let col = 1; col <= cols; col++) {
+                    if (seatCounter > totalSeats) return;
+                    
+                    const seat = document.createElement('div');
+                    
+                    // Проверяем, является ли это место забронированным
+                    if (row === reservedRow && col === reservedCol) {
+                        // Это место Лященко М.Н. - ВСЕГДА ПОДПИСАНО
+                        seat.className = 'seat vip-seat reserved';
+                        seat.dataset.number = seatCounter;
+                        seat.dataset.type = 'vip';
+                        seat.dataset.price = seatPrices['vip'];
+                        seat.dataset.reserved = true;
+                        seat.dataset.reservedFor = 'Лященко Максим Николаевич';
+                        seat.setAttribute('data-number', `Место ${seatCounter} (Забронировано)`);
+                        seat.onclick = null;
+                        
+                        // Сразу показываем подпись
+                        seat.style.zIndex = '200';
+                    } else {
+                        // Обычное VIP место
+                        seat.className = 'seat vip-seat';
+                        seat.dataset.number = seatCounter;
+                        seat.dataset.type = 'vip';
+                        seat.dataset.price = seatPrices['vip'];
+                        seat.setAttribute('data-number', `Место ${seatCounter}`);
+                        
+                        seat.onclick = function() {
+                            if (!this.classList.contains('occupied') && !this.classList.contains('reserved')) {
+                                toggleSeatSelection(this);
+                            }
+                        };
+                    }
+                    
+                    container.appendChild(seat);
+                    seatCounter++;
+                }
+            }
+        }
+        
+        // Занимаем случайные места
+        function occupyRandomSeats(count) {
+            const allSeats = document.querySelectorAll('.seat:not(.reserved)');
+            const seatsToOccupy = Math.min(count, allSeats.length);
+            const occupiedIndices = new Set();
+            
+            while (occupiedIndices.size < seatsToOccupy) {
+                const randomIndex = Math.floor(Math.random() * allSeats.length);
+                if (!occupiedIndices.has(randomIndex)) {
+                    occupiedIndices.add(randomIndex);
+                    const seat = allSeats[randomIndex];
+                    seat.classList.remove('regular', 'vip-seat');
+                    seat.classList.add('occupied');
+                    seat.onclick = null;
+                }
+            }
+        }
+        
+        // Выбор танцпола
+        function selectDanceFloor() {
+            danceFloorSelected = !danceFloorSelected;
+            const danceFloor = document.getElementById('danceFloor');
+            
+            if (danceFloorSelected) {
+                danceFloor.classList.add('selected');
+            } else {
+                danceFloor.classList.remove('selected');
+            }
+            
+            updateSelection();
+        }
+        
+        // Выбор/отмена выбора места
+        function toggleSeatSelection(seatElement) {
+            const seatNumber = seatElement.dataset.number;
+            
+            if (selectedSeats.has(seatNumber)) {
+                selectedSeats.delete(seatNumber);
+                seatElement.classList.remove('selected');
+            } else {
+                selectedSeats.add(seatNumber);
+                seatElement.classList.add('selected');
+            }
+            
+            updateSelection();
+        }
+        
+        // Удаление места из выбранных
+        function removeSeatFromSelection(seatNumber) {
+            if (seatNumber === 'dancefloor') {
+                danceFloorSelected = false;
+                document.getElementById('danceFloor').classList.remove('selected');
+            } else {
+                selectedSeats.delete(seatNumber);
+                
+                const seatElement = document.querySelector(`.seat[data-number="${seatNumber}"]`);
+                if (seatElement) {
+                    seatElement.classList.remove('selected');
+                }
+            }
+            
+            updateSelection();
+        }
+        
+        // Обновление выбора
+        function updateSelection() {
+            const seatsList = document.getElementById('seatsList');
+            const selectedCountElement = document.getElementById('selectedCount');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const buyButton = document.getElementById('buyButton');
+            
+            let totalCount = selectedSeats.size;
+            let totalPrice = 0;
+            
+            if (danceFloorSelected) {
+                totalCount += 1;
+            }
+            
+            if (totalCount === 0) {
+                seatsList.innerHTML = '<div class="empty-message">Нажмите на места в зале, чтобы добавить их в корзину</div>';
+                selectedCountElement.textContent = '0';
+                totalPriceElement.textContent = '0';
+                buyButton.disabled = true;
+                return;
+            }
+            
+            seatsList.innerHTML = '';
+            
+            if (danceFloorSelected) {
+                totalPrice += seatPrices.dance;
+                const badge = document.createElement('div');
+                badge.className = 'seat-badge';
+                badge.innerHTML = `
+                    Танцпол - ${seatPrices.dance} ₽
+                    <button class="remove-seat" onclick="removeSeatFromSelection('dancefloor')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                seatsList.appendChild(badge);
+            }
+            
+            selectedSeats.forEach(seatNumber => {
+                const seatElement = document.querySelector(`.seat[data-number="${seatNumber}"]`);
+                if (seatElement) {
+                    const seatType = seatElement.dataset.type;
+                    const seatPrice = parseInt(seatElement.dataset.price);
+                    totalPrice += seatPrice;
+                    
+                    const badge = document.createElement('div');
+                    badge.className = 'seat-badge';
+                    badge.innerHTML = `
+                        Место ${seatNumber} (${seatType === 'vip' ? 'VIP' : 'Стандарт'}) - ${seatPrice} ₽
+                        <button class="remove-seat" onclick="removeSeatFromSelection('${seatNumber}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    seatsList.appendChild(badge);
+                }
+            });
+            
+            selectedCountElement.textContent = totalCount;
+            totalPriceElement.textContent = totalPrice.toLocaleString('ru-RU');
+            buyButton.disabled = false;
+        }
+        
+        // Обновление статистики
+        function updateStats() {
+            const occupiedElements = document.querySelectorAll('.seat.occupied');
+            const reservedElements = document.querySelectorAll('.seat.reserved');
+            const freeElements = document.querySelectorAll('.seat:not(.occupied):not(.reserved)');
+            
+            const totalOccupied = occupiedElements.length + reservedElements.length;
+            
+            document.getElementById('occupiedSeats').textContent = totalOccupied;
+            document.getElementById('freeSeats').textContent = freeElements.length;
+        }
+        
+        // Покупка билетов
+        function buyTickets() {
+            const totalCount = selectedSeats.size + (danceFloorSelected ? 1 : 0);
+            
+            if (totalCount === 0) {
+                alert('Выберите хотя бы одно место или танцпол!');
+                return;
+            }
+            
+            const totalPrice = document.getElementById('totalPrice').textContent;
+            const seatsArray = Array.from(selectedSeats);
+            
+            let seatsText = '';
+            if (danceFloorSelected) {
+                seatsText = 'Танцпол';
+                if (seatsArray.length > 0) {
+                    seatsText += ', места: ' + seatsArray.slice(0, 3).join(', ');
+                    if (seatsArray.length > 3) {
+                        seatsText += ` и еще ${seatsArray.length - 3} мест`;
+                    }
+                }
+            } else {
+                seatsText = seatsArray.slice(0, 3).join(', ');
+                if (seatsArray.length > 3) {
+                    seatsText += ` и еще ${seatsArray.length - 3} мест`;
+                }
+            }
+            
+            if (confirm(`Купить ${totalCount} билет(а/ов): ${seatsText}\nОбщая сумма: ${totalPrice} ₽?`)) {
+                if (danceFloorSelected) {
+                    const danceFloor = document.getElementById('danceFloor');
+                    danceFloor.classList.remove('selected');
+                    danceFloor.style.background = 'linear-gradient(135deg, #757575 0%, #616161 100%)';
+                    danceFloor.style.cursor = 'not-allowed';
+                    danceFloor.onclick = null;
+                    danceFloorSelected = false;
+                }
+                
+                selectedSeats.forEach(seatNumber => {
+                    const seatElement = document.querySelector(`.seat[data-number="${seatNumber}"]`);
+                    if (seatElement) {
+                        seatElement.classList.remove('selected', 'regular', 'vip-seat');
+                        seatElement.classList.add('occupied');
+                        seatElement.onclick = null;
+                    }
+                });
+                
+                alert(`✅ ПОЗДРАВЛЯЕМ!\n\nВы успешно купили ${totalCount} билет(а/ов)\n${seatsText}\nСумма: ${totalPrice} ₽\n\nЭлектронные билеты отправлены на email.`);
+                
+                selectedSeats.clear();
+                updateSelection();
+                updateStats();
+            }
+        }
+        
+        // ========== НАВИГАЦИЯ ==========
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+        
+        // ========== ЗАГРУЗКА ПОСТЕРА ==========
+        document.getElementById('posterImg').onerror = function() {
+            this.src = 'https://via.placeholder.com/250x350/FF8C00/FFFFFF?text=ПОСТЕР+ЮЛИЯ+ЛО';
+        };
+        
+        // ========== ЗАПУСК ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            createSeats();
+            setTimeout(startMusic, 500);
+            
+            if (!window.location.href.includes('file://')) {
+                console.log('Добавьте в папку assets/ файлы: poster.jpg, clip.mp4, tangerine.mp3');
+            }
+        });
+    </script>
+</body>
+</html>

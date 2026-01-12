@@ -1,0 +1,1241 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #FF8C00;
+    --orange-light: #FFA500;
+    --orange-dark: #FF6B00;
+    --white: #FFFFFF;
+    --black: #222222;
+    --gray: #F5F5F5;
+    --gray-dark: #666666;
+    --green: #4CAF50;
+    --red: #FF4444;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffebcc 100%);
+    color: var(--black);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Хедер */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(255, 140, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--orange);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+    transform: translateY(-2px);
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cart:hover {
+    background: var(--orange-dark);
+    transform: scale(1.05);
+}
+
+.cart-count {
+    background: white;
+    color: var(--orange);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Постер секция */
+.poster-section {
+    padding: 150px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.orange-theme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.orange-slice {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,140,0,0.1) 0%, rgba(255,140,0,0) 70%);
+    border-radius: 50%;
+}
+
+.orange-slice:nth-child(1) { top: 10%; left: 5%; }
+.orange-slice:nth-child(2) { top: 40%; right: 10%; }
+.orange-slice:nth-child(3) { bottom: 20%; left: 20%; }
+
+.poster-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.poster-main {
+    text-align: center;
+}
+
+.artist-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--orange);
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.hit-song {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.hit-song h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.music-note {
+    font-size: 2.5rem;
+    color: var(--orange);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.concert-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gray-dark);
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.concert-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+    min-width: 180px;
+}
+
+.info-block i {
+    font-size: 2rem;
+    color: var(--orange);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+    margin-bottom: 5px;
+}
+
+.value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 30px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4);
+}
+
+.countdown {
+    margin-top: 40px;
+}
+
+.countdown-title {
+    font-size: 1.2rem;
+    color: var(--gray-dark);
+    margin-bottom: 15px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.time-unit {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.time-unit span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--orange);
+    display: block;
+}
+
+.time-unit small {
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+}
+
+/* Плеер песни */
+.poster-side {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(255, 140, 0, 0.1);
+    align-self: center;
+}
+
+.song-preview {
+    text-align: center;
+}
+
+.song-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.song-title i {
+    font-size: 2rem;
+    color: var(--orange);
+}
+
+.song-title h3 {
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+.song-player {
+    background: var(--gray);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.song-info {
+    margin-bottom: 20px;
+}
+
+.song-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--orange);
+}
+
+.song-artist {
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.audio-btn {
+    background: var(--orange);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.audio-btn:hover {
+    background: var(--orange-dark);
+    transform: scale(1.1);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-control i {
+    color: var(--orange);
+}
+
+.lyrics-excerpt {
+    font-style: italic;
+    color: var(--gray-dark);
+    line-height: 1.8;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--orange-light);
+}
+
+/* Зал */
+.hall-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: var(--orange);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--gray-dark);
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.seat-sample {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.seat-sample.available { background: #4CAF50; }
+.seat-sample.selected { background: var(--orange); }
+.seat-sample.occupied { background: var(--gray-dark); }
+.seat-sample.vip { background: #9C27B0; }
+
+.concert-hall {
+    margin: 50px 0;
+    position: relative;
+}
+
+.stage-area {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.stage {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    color: white;
+    padding: 20px 60px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.stage-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.stage-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.artist-name-stage {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    font-size: 1.2rem;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.auditorium {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vip-zone, .parterre, .balcony {
+    margin-bottom: 40px;
+}
+
+.zone-label {
+    text-align: center;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    background: rgba(255, 140, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.row-number {
+    font-weight: 700;
+    color: var(--orange);
+    min-width: 30px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.seat:hover:not(.occupied) {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.seat.selected {
+    background: var(--orange);
+    transform: scale(1.1);
+}
+
+.seat.occupied {
+    background: var(--gray-dark);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.seat.vip {
+    background: #9C27B0;
+}
+
+.seat.balcony-seat {
+    background: #2196F3;
+}
+
+.vip-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.balcony-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+/* Корзина */
+.selected-seats {
+    background: var(--gray);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.selected-seats h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: var(--orange);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.seats-list {
+    min-height: 100px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--gray-dark);
+    padding: 30px;
+    font-style: italic;
+}
+
+.seat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.seat-item:last-child {
+    border-bottom: none;
+}
+
+.remove-seat {
+    color: var(--red);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.total-items, .total-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.total-price span {
+    color: var(--orange);
+    font-size: 1.8rem;
+}
+
+.buy-btn {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.buy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+}
+
+/* Информация */
+.info-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffebcc 100%);
+}
+
+.info-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: var(--orange);
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+}
+
+.info-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: var(--orange);
+    margin-bottom: 15px;
+}
+
+.info-card p, .info-card li {
+    color: var(--gray-dark);
+    line-height: 1.8;
+}
+
+.info-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.info-card li {
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.info-card li:before {
+    content: "🍊";
+    position: absolute;
+    left: 0;
+}
+
+/* Футер */
+.footer {
+    background: var(--orange);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    text-align: center;
+}
+
+.footer-logo .logo-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-logo .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    display: block;
+}
+
+.concert-title {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.footer-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: white;
+    color: var(--orange);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.8;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray-dark);
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin: 20px 0;
+    animation: bounce 1s infinite;
+}
+
+.purchase-details {
+    background: var(--gray);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.ticket-info {
+    font-style: italic;
+    color: var(--gray-dark);
+    margin: 20px 0;
+}
+
+.modal-btn {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-btn:hover {
+    background: var(--orange-dark);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .poster-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .artist-name {
+        font-size: 3.5rem;
+    }
+    
+    .hit-song h2 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .concert-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .row {
+        flex-wrap: wrap;
+    }
+    
+    .seat {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .cart-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .artist-name {
+        font-size: 2.8rem;
+    }
+    
+    .hit-song h2 {
+        font-size: 2rem;
+    }
+    
+    .countdown-timer {
+        flex-wrap: wrap;
+    }
+    
+    .time-unit {
+        min-width: 70px;
+    }
+}
+
+/* Добавьте эти стили в конец файла style.css */
+
+/* Контроль музыки */
+.music-control {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(255, 140, 0, 0.9);
+    padding: 10px 15px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.music-control button {
+    background: white;
+    color: var(--orange);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.music-control input[type="range"] {
+    width: 80px;
+    accent-color: white;
+}
+
+/* Постер с фото */
+.poster-container {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.poster-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 140, 0, 0.7) 0%,
+        rgba(255, 165, 0, 0.6) 50%,
+        rgba(255, 107, 0, 0.7) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poster-content {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    max-width: 800px;
+}
+
+.artist-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+    to { text-shadow: 0 0 30px rgba(255,255,255,0.8); }
+}
+
+.hit-song {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.hit-song h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.music-note {
+    font-size: 3rem;
+    animation: bounce 2s infinite;
+}
+
+.concert-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+/* Видео секция */
+.video-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffebcc 100%);
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(255, 140, 0, 0.2);
+}
+
+.video-container video {
+    width: 100%;
+    height: 450px;
+    display: block;
+    border-bottom: 3px solid var(--orange);
+}
+
+.video-info {
+    padding: 30px;
+}
+
+.video-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: var(--orange);
+    margin-bottom: 15px;
+}
+
+.video-info p {
+    color: var(--gray-dark);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.video-stats {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 140, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.stat i {
+    color: var(--orange);
+    font-size: 1.2rem;
+}
+
+/* Упрощенная схема зала */
+.seats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.vip-row {
+    margin-bottom: 30px;
+}
+
+.vip-row .seat {
+    background: #9C27B0;
+    font-weight: bold;
+}
+
+.seat {
+    width: 60px;
+    height: 60px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.seat:hover:not(.occupied) {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.seat.selected {
+    background: var(--orange);
+    transform: scale(1.1);
+}
+
+.seat.occupied {
+    background: var(--gray-dark);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .music-control {
+        top: 80px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+    
+    .artist-name {
+        font-size: 3rem;
+    }
+    
+    .hit-song h2 {
+        font-size: 2.5rem;
+    }
+    
+    .concert-title {
+        font-size: 1.5rem;
+    }
+    
+    .video-container video {
+        height: 300px;
+    }
+    
+    .video-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .seat {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-name {
+        font-size: 2.5rem;
+    }
+    
+    .hit-song h2 {
+        font-size: 2rem;
+    }
+    
+    .concert-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .video-container video {
+        height: 250px;
+    }
+    
+    .video-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
